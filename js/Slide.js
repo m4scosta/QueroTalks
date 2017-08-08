@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar
+  StatusBar,
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 export default class Slide extends React.Component {
@@ -38,14 +40,28 @@ export default class Slide extends React.Component {
   renderArrows() {
     var leftArrow, rightArrow;
     if (!this.props.firstSlide) {
-      leftArrow = <Text style={styles.arrow} onPress={() => this.goToPrevSlide()}>{"<"}</Text>;
+      leftArrow = (
+        <TouchableHighlight onPress={() => this.goToPrevSlide()}
+                            underlayColor="rgba(255, 255, 255, 0.1)">
+          <Image style={styles.arrowImg}
+                 source={require('../assets/arrow-left-enabled.png')} />
+        </TouchableHighlight>
+      );
     } else {
-      leftArrow = <Text style={[styles.arrow, styles.arrowDisabled]}>{"<"}</Text>;
+      leftArrow = <Image style={styles.arrowImg}
+                         source={require('../assets/arrow-left-disabled.png')} />
     }
     if (!this.props.lastSlide) {
-      rightArrow = <Text style={styles.arrow} onPress={() => this.goToNextSlide()}>{">"}</Text>;
+      rightArrow = (
+        <TouchableHighlight onPress={() => this.goToNextSlide()}
+                            underlayColor="rgba(255, 255, 255, 0.1)">
+          <Image style={styles.arrowImg}
+                 source={require('../assets/arrow-right-enabled.png')} />
+        </TouchableHighlight>
+      );
     } else {
-      rightArrow = <Text style={[styles.arrow, styles.arrowDisabled]}>{">"}</Text>;
+      rightArrow = <Image style={styles.arrowImg}
+                          source={require('../assets/arrow-right-disabled.png')} />
     }
     return (
       <View style={styles.arrowsContainer}>
@@ -77,6 +93,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     marginBottom: 30,
+    textAlign: 'center',
   },
   text: {
     fontSize: 20,
@@ -86,16 +103,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 20,
     right: 20,
-    bottom: 0,
+    bottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  arrow: {
-    fontSize: 50,
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  arrowDisabled: {
-    color: 'lightgray',
+  arrowImg: {
+    height: 50,
+    resizeMode: 'contain',
   },
 });

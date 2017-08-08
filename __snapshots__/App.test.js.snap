@@ -90,6 +90,7 @@ exports[`renders the correct content 1`] = `
                 "fontSize": 40,
                 "fontWeight": "bold",
                 "marginBottom": 30,
+                "textAlign": "center",
               }
             }
           >
@@ -112,7 +113,7 @@ exports[`renders the correct content 1`] = `
           <View
             style={
               Object {
-                "bottom": 0,
+                "bottom": 10,
                 "flexDirection": "row",
                 "justifyContent": "space-between",
                 "left": 20,
@@ -121,42 +122,52 @@ exports[`renders the correct content 1`] = `
               }
             }
           >
-            <Text
+            <Image
+              source={1}
+              style={
+                Object {
+                  "height": 50,
+                  "resizeMode": "contain",
+                }
+              }
+            />
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
               accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Array [
                   Object {
-                    "color": "white",
-                    "fontSize": 50,
-                    "fontWeight": "bold",
+                    "backgroundColor": "transparent",
                   },
-                  Object {
-                    "color": "lightgray",
-                  },
+                  undefined,
                 ]
               }
+              testID={undefined}
+              tvParallaxProperties={undefined}
             >
-              &lt;
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-              onPress={[Function]}
-              style={
-                Object {
-                  "color": "white",
-                  "fontSize": 50,
-                  "fontWeight": "bold",
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "height": 50,
+                    "resizeMode": "contain",
+                  }
                 }
-              }
-            >
-              &gt;
-            </Text>
+              />
+            </View>
           </View>
         </View>
       </View>
